@@ -4,13 +4,41 @@ from datetime import datetime, timedelta
 # -------- Level 1 --------
 # TODO: Create a function to view all books that are currently available
 # Output should include book ID, title, and author
+def available_books():
+    #Initialize the list for holding the available books
+    available_list = []
 
+    # A for loop for iterating through eack book
+    for book in library_books:
+        #An if statement to check if avaiable or not
+        if book["available"] == True:
+            available_list.append(book)
+    # Print the details of the books
+    for book in available_list:
+        print(f"{book['id']} {book['title']} {book['author']}")
+    
+available_books()
 
 # -------- Level 2 --------
 # TODO: Create a function to search books by author OR genre
 # Search should be case-insensitive
 # Return a list of matching books
 
+def search_book():
+    #Ask user for genre or author
+    user_input = input("Enter book author or genre. ").lower()
+    # For loop to iterate through the books
+    for book in library_books:
+        #If statement to check if genre or author 
+        
+        #Made the value of genre and author for all books lower case
+        genre = book["genre"].lower()
+        author = book["author"].lower()
+
+        if user_input == genre or user_input == author:
+            print(f"{book['id']} {book['title']} {book['author']}")
+
+search_book()
 
 # -------- Level 3 --------
 # TODO: Create a function to checkout a book by ID
